@@ -84,14 +84,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Soluciones integrales de aseo, mantenimiento y talento humano para hogares, oficinas y empresas en Bogotá. Espacios que inspiran.",
       },
       { name: "author", content: "LimpiaGo+" },
-      { property: "og:title", content: "LimpiaGo+ | Espacios que inspiran" },
+      { property: "og:title", content: "LimpiaGo+ | Servicios integrales de aseo y talento humano en Bogotá" },
       {
         property: "og:description",
         content:
-          "Aliado estratégico en aseo, mantenimiento y talento humano en Bogotá. Respuesta inmediata y talento certificado.",
+          "Soluciones integrales de aseo, mantenimiento y talento humano para hogares, oficinas y empresas en Bogotá. Espacios que inspiran.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "LimpiaGo+ | Servicios integrales de aseo y talento humano en Bogotá" },
+      { name: "twitter:description", content: "Soluciones integrales de aseo, mantenimiento y talento humano para hogares, oficinas y empresas en Bogotá. Espacios que inspiran." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c60b2aff-8997-4e21-abf0-86881d63f9b3/id-preview-e407a230--6a95adb1-6bdc-4831-a604-ccf02a2fe2cd.lovable.app-1783865970009.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c60b2aff-8997-4e21-abf0-86881d63f9b3/id-preview-e407a230--6a95adb1-6bdc-4831-a604-ccf02a2fe2cd.lovable.app-1783865970009.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
