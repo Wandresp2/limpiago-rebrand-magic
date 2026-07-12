@@ -194,12 +194,15 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="inicio" className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-hero)" }} />
-      <div className="brand-swoosh -z-10" />
+    <section
+      id="inicio"
+      className="relative isolate overflow-hidden"
+      style={{ background: "var(--gradient-hero)" }}
+    >
+      <div className="brand-swoosh" />
       {/* subtle grid */}
       <div
-        className="absolute inset-0 -z-10 opacity-[0.08]"
+        className="pointer-events-none absolute inset-0 opacity-[0.08]"
         style={{
           backgroundImage:
             "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
