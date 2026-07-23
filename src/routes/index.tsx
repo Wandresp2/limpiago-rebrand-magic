@@ -6,6 +6,13 @@ import {
   ClipboardCheck,
   Handshake,
   BarChart3,
+  Code2,
+  Factory,
+  Calculator,
+  Briefcase,
+  Megaphone,
+  Palette,
+  Scale,
   Building2,
   HardHat,
   ShoppingBag,
@@ -23,21 +30,11 @@ import {
   ArrowRight,
   Menu,
   X,
+  CheckCircle2,
   Sparkles,
-  Building,
 } from "lucide-react";
 
 import logo from "@/assets/tsi-logo.png.asset.json";
-import heroImg from "@/assets/tsi-hero.jpg";
-import processImg from "@/assets/process-image.jpg";
-import industriesBand from "@/assets/industries-band.jpg";
-import specSistemas from "@/assets/spec-sistemas.jpg";
-import specIndustrial from "@/assets/spec-industrial.jpg";
-import specContaduria from "@/assets/spec-contaduria.jpg";
-import specAdmin from "@/assets/spec-admin.jpg";
-import specMarketing from "@/assets/spec-marketing.jpg";
-import specDiseno from "@/assets/spec-diseno.jpg";
-import specDerecho from "@/assets/spec-derecho.jpg";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -45,55 +42,60 @@ export const Route = createFileRoute("/")({
 
 const nav = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Proceso", href: "#nosotros" },
-  { label: "Especialistas", href: "#servicios" },
-  { label: "Industrias", href: "#industrias" },
+  { label: "Nosotros", href: "#nosotros" },
+  { label: "Servicios", href: "#servicios" },
+  { label: "Clientes", href: "#clientes" },
   { label: "Contacto", href: "#contacto" },
 ];
 
 const stats = [
-  { kpi: "+500", label: "Profesionales disponibles" },
-  { kpi: "+100", label: "Empresas confían en nosotros" },
-  { kpi: "98%", label: "Satisfacción de clientes" },
-  { kpi: "24h", label: "Respuesta promedio" },
+  { icon: Users, kpi: "+500", label: "Profesionales disponibles" },
+  { icon: Building2, kpi: "+100", label: "Empresas confían en nosotros" },
+  { icon: Sparkles, kpi: "98%", label: "Satisfacción de clientes" },
+  { icon: MapPin, kpi: "Nacional", label: "Cobertura eficiente y oportuna" },
 ];
 
 const process = [
   {
+    n: "01",
     icon: Users,
     title: "Entendemos tus necesidades",
-    desc: "Analizamos tu cultura, objetivos y el perfil exacto que requieres.",
+    desc: "Analizamos tu cultura, objetivos y perfil requerido.",
   },
   {
+    n: "02",
     icon: Search,
     title: "Buscamos y seleccionamos",
-    desc: "Filtro riguroso dentro de nuestra red de más de 500 profesionales.",
+    desc: "Realizamos un filtro riguroso de candidatos.",
   },
   {
+    n: "03",
     icon: ClipboardCheck,
     title: "Evaluamos y garantizamos",
-    desc: "Verificamos competencias, referencias y habilidades técnicas.",
+    desc: "Verificamos competencias, referencias y habilidades.",
   },
   {
+    n: "04",
     icon: Handshake,
     title: "Integramos al talento",
-    desc: "Acompañamos el proceso de vinculación de principio a fin.",
+    desc: "Acompañamos el proceso de vinculación completo.",
   },
   {
+    n: "05",
     icon: BarChart3,
     title: "Hacemos seguimiento",
-    desc: "Medimos resultados y aseguramos continuidad a largo plazo.",
+    desc: "Medimos resultados y aseguramos continuidad.",
   },
 ];
 
 const specialties = [
-  { title: "Ingeniería de Sistemas", img: specSistemas, tone: "sky" },
-  { title: "Ingeniería Industrial", img: specIndustrial, tone: "orange" },
-  { title: "Contaduría Pública", img: specContaduria, tone: "sky" },
-  { title: "Administración de Empresas", img: specAdmin, tone: "orange" },
-  { title: "Marketing", img: specMarketing, tone: "sky" },
-  { title: "Diseño Gráfico", img: specDiseno, tone: "orange" },
-  { title: "Derecho y Asesoría Jurídica", img: specDerecho, tone: "sky" },
+  { icon: Code2, title: "Ingeniería de Sistemas" },
+  { icon: Factory, title: "Ingeniería Industrial" },
+  { icon: Calculator, title: "Contaduría Pública" },
+  { icon: Briefcase, title: "Administración de Empresas" },
+  { icon: Megaphone, title: "Marketing" },
+  { icon: Palette, title: "Diseño Gráfico" },
+  { icon: Scale, title: "Derecho y Asesoría Jurídica" },
 ];
 
 const industries = [
@@ -107,7 +109,7 @@ const industries = [
   { icon: Truck, title: "Logística y transporte" },
   { icon: Hotel, title: "Hoteles" },
   { icon: UtensilsCrossed, title: "Restaurantes" },
-  { icon: Building, title: "Entidades públicas" },
+  { icon: Landmark, title: "Entidades públicas" },
   { icon: Rocket, title: "Startups y tecnológicas" },
 ];
 
@@ -219,20 +221,16 @@ function Hero() {
     <section id="inicio" className="relative isolate overflow-hidden bg-[color:var(--cream)]">
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 -right-40 h-[560px] w-[560px] rounded-full opacity-50 blur-3xl"
+        className="pointer-events-none absolute -top-40 -right-40 h-[520px] w-[520px] rounded-full opacity-40 blur-3xl"
         style={{ background: "color-mix(in oklab, var(--sky) 55%, transparent)" }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-32 -left-32 h-[460px] w-[460px] rounded-full opacity-40 blur-3xl"
+        className="pointer-events-none absolute -bottom-24 -left-24 h-[420px] w-[420px] rounded-full opacity-30 blur-3xl"
         style={{ background: "color-mix(in oklab, var(--orange) 45%, transparent)" }}
       />
-      <div
-        aria-hidden
-        className="dot-grid pointer-events-none absolute inset-y-0 right-1/2 hidden w-1/2 opacity-40 md:block"
-      />
 
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-5 py-20 md:py-28 lg:grid-cols-[1.05fr_1fr] lg:px-8">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-5 py-20 md:py-28 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
         <div>
           <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--orange)]/30 bg-white px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--orange)]">
             <Sparkles className="h-3.5 w-3.5" /> Gestión de talento
@@ -264,51 +262,22 @@ function Hero() {
               Hablar con un asesor
             </a>
           </div>
-
-          <div className="mt-12 grid max-w-lg grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <div className="text-2xl font-extrabold text-primary sm:text-3xl">{s.kpi}</div>
-                <div className="mt-1 text-[11px] leading-snug text-muted-foreground">{s.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
 
-        {/* Photo composition */}
-        <div className="relative mx-auto w-full max-w-lg">
-          <div
-            aria-hidden
-            className="absolute -inset-6 -z-10 blob-1 bg-gradient-to-br from-[color:var(--orange)]/30 via-[color:var(--sky)]/30 to-transparent blur-2xl"
-          />
-          <div className="blob-1 relative overflow-hidden shadow-[var(--shadow-soft)] ring-1 ring-white/60">
-            <img
-              src={heroImg}
-              alt="Equipo profesional colaborando"
-              className="h-[520px] w-full object-cover"
-              width={1400}
-              height={1600}
-            />
-          </div>
-
-          {/* floating chips */}
-          <div className="float-slow absolute -left-6 top-10 hidden rounded-2xl bg-white p-3 pr-4 shadow-[var(--shadow-card)] sm:flex sm:items-center sm:gap-3">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-[color:var(--orange)]/15 text-[color:var(--orange)]">
-              <Users className="h-4 w-4" />
-            </span>
-            <div>
-              <div className="text-sm font-bold text-primary">+500 talentos</div>
-              <div className="text-[11px] text-muted-foreground">Listos para tu empresa</div>
-            </div>
-          </div>
-          <div className="float-slow absolute -bottom-4 -right-2 hidden rounded-2xl bg-primary p-3 pr-4 text-white shadow-[var(--shadow-soft)] sm:flex sm:items-center sm:gap-3">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-white/10 text-[color:var(--orange)]">
-              <Sparkles className="h-4 w-4" />
-            </span>
-            <div>
-              <div className="text-sm font-bold">98% satisfacción</div>
-              <div className="text-[11px] text-white/70">Clientes recurrentes</div>
-            </div>
+        <div className="relative">
+          <div className="grid grid-cols-2 gap-4 sm:gap-5">
+            {stats.map(({ icon: Icon, kpi, label }) => (
+              <div
+                key={label}
+                className="rounded-3xl border border-primary/10 bg-white p-5 shadow-[var(--shadow-card)] transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
+              >
+                <div className="grid h-11 w-11 place-items-center rounded-2xl bg-[color:var(--orange)]/10 text-[color:var(--orange)]">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <div className="mt-4 text-2xl font-extrabold text-primary">{kpi}</div>
+                <div className="mt-1 text-xs leading-snug text-muted-foreground">{label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -320,75 +289,37 @@ function Hero() {
 
 function Process() {
   return (
-    <section id="nosotros" className="relative overflow-hidden py-24">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"
-      />
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-14 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-        {/* Left: image */}
-        <div className="relative lg:sticky lg:top-28">
-          <div
-            aria-hidden
-            className="absolute -inset-4 -z-10 blob-2 bg-[color:var(--sky)]/40 blur-2xl"
-          />
-          <div className="blob-2 relative overflow-hidden shadow-[var(--shadow-soft)]">
-            <img
-              src={processImg}
-              alt="Selección de talento"
-              className="h-[520px] w-full object-cover"
-              loading="lazy"
-              width={1200}
-              height={1400}
-            />
-          </div>
-          <div className="absolute -bottom-4 left-6 rounded-2xl bg-white px-5 py-4 shadow-[var(--shadow-card)]">
-            <div className="text-xs font-semibold uppercase tracking-wider text-[color:var(--orange)]">
-              Método probado
-            </div>
-            <div className="mt-1 text-lg font-extrabold text-primary">5 pasos, cero improvisación</div>
-          </div>
-        </div>
-
-        {/* Right: vertical timeline */}
-        <div>
+    <section id="nosotros" className="relative py-24">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
           <Eyebrow>Nuestro proceso</Eyebrow>
           <h2 className="mt-3 text-3xl font-extrabold text-primary sm:text-4xl md:text-5xl">
             Así encontramos el talento ideal para tu empresa.
           </h2>
-          <p className="mt-4 max-w-xl text-base text-muted-foreground">
-            Un flujo claro y humano que acompaña cada etapa: desde entender qué necesitas hasta medir
-            los resultados una vez el profesional está integrado.
+          <p className="mt-4 text-base text-muted-foreground">
+            Un método probado, 5 pasos, cero improvisación.
           </p>
+        </div>
 
-          <ol className="relative mt-12 space-y-8 border-l-2 border-dashed border-[color:var(--orange)]/40 pl-8">
-            {process.map((p, i) => (
-              <li key={p.title} className="relative">
-                <span className="absolute -left-[43px] top-0 grid h-10 w-10 place-items-center rounded-full bg-[color:var(--orange)] text-sm font-bold text-accent-foreground shadow-[var(--shadow-orange)]">
+        <ol className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          {process.map((p, i) => (
+            <li
+              key={p.n}
+              className="group relative rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
+            >
+              <div className="flex items-center justify-between">
+                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[color:var(--sky-soft)] text-primary">
+                  <p.icon className="h-5 w-5" />
+                </div>
+                <span className="grid h-8 w-8 place-items-center rounded-full bg-[color:var(--orange)] text-xs font-bold text-accent-foreground">
                   {i + 1}
                 </span>
-                <div className="flex items-start gap-4">
-                  <span className="mt-1 grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-[color:var(--sky-soft)] text-primary">
-                    <p.icon className="h-5 w-5" />
-                  </span>
-                  <div>
-                    <h3 className="text-lg font-bold text-primary">{p.title}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">{p.desc}</p>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ol>
-
-          <div className="mt-10">
-            <a
-              href="#contacto"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
-            >
-              Empezar mi proceso <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
-        </div>
+              </div>
+              <h3 className="mt-5 text-base font-bold text-primary">{p.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );
@@ -398,96 +329,56 @@ function Process() {
 
 function Specialties() {
   return (
-    <section id="servicios" className="relative overflow-hidden py-24">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{ background: "var(--gradient-sky)" }}
-      />
+    <section id="servicios" className="relative overflow-hidden bg-[color:var(--sky-soft)] py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <Eyebrow>Especialistas a tu disposición</Eyebrow>
+          <Eyebrow>Profesionales que ponemos a tu disposición</Eyebrow>
           <h2 className="mt-3 text-3xl font-extrabold text-primary sm:text-4xl md:text-5xl">
             Talento especializado para cada necesidad.
           </h2>
-          <p className="mt-4 text-base text-muted-foreground">
-            Profesionales verificados en las áreas que impulsan tu operación.
-          </p>
         </div>
 
-        {/* Organic masonry-ish layout */}
-        <div className="mt-16 grid grid-cols-2 gap-5 md:grid-cols-4">
-          {specialties.map((s, i) => (
-            <SpecialtyCard key={s.title} {...s} index={i} />
+        <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {specialties.map(({ icon: Icon, title }) => (
+            <article
+              key={title}
+              className="group relative overflow-hidden rounded-3xl border border-white/60 bg-white p-6 shadow-[var(--shadow-card)] transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
+            >
+              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[color:var(--orange)] text-accent-foreground shadow-[var(--shadow-orange)]">
+                <Icon className="h-5 w-5" />
+              </div>
+              <h3 className="mt-5 text-base font-bold text-primary">{title}</h3>
+              <ul className="mt-4 space-y-2 text-xs text-muted-foreground">
+                {["Disponibilidad inmediata", "Selección validada", "Cobertura nacional"].map((f) => (
+                  <li key={f} className="flex items-center gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[color:var(--orange)]" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <div className="pointer-events-none absolute -bottom-16 -right-16 h-40 w-40 rounded-full bg-[color:var(--sky)]/40 opacity-0 transition group-hover:opacity-100" />
+            </article>
           ))}
-          {/* CTA card fills the 8th cell */}
           <a
             href="#contacto"
-            className="group relative flex min-h-[260px] flex-col justify-between overflow-hidden rounded-[2rem] bg-primary p-6 text-primary-foreground shadow-[var(--shadow-soft)] transition hover:-translate-y-1"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl bg-primary p-6 text-primary-foreground shadow-[var(--shadow-soft)] transition hover:-translate-y-1"
           >
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-[color:var(--orange-soft)]">
-                <Sparkles className="h-3 w-3" /> A la medida
-              </span>
-              <h3 className="mt-4 text-lg font-bold leading-tight">
-                ¿Necesitas otro perfil?
-              </h3>
-              <p className="mt-2 text-sm text-white/70">
-                Tenemos una red mucho más amplia. Cuéntanos qué buscas.
+              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-white/10 text-[color:var(--orange)]">
+                <Sparkles className="h-5 w-5" />
+              </div>
+              <h3 className="mt-5 text-base font-bold">¿Necesitas otro perfil?</h3>
+              <p className="mt-2 text-sm text-white/75">
+                Contamos con una amplia red de profesionales listos para tu operación.
               </p>
             </div>
-            <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--orange-soft)]">
-              Solicitar perfil <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+            <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--orange)]">
+              Cuéntanos <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
             </span>
-            <div
-              aria-hidden
-              className="absolute -bottom-16 -right-16 h-44 w-44 blob-3 bg-[color:var(--orange)]/30 blur-2xl"
-            />
           </a>
         </div>
       </div>
     </section>
-  );
-}
-
-function SpecialtyCard({
-  title,
-  img,
-  index,
-}: {
-  title: string;
-  img: string;
-  tone: string;
-  index: number;
-}) {
-  // Alternate blob shape + slight vertical offset for organic rhythm
-  const shape = index % 3 === 0 ? "blob-1" : index % 3 === 1 ? "blob-2" : "blob-3";
-  const offset = index % 2 === 0 ? "md:mt-0" : "md:mt-10";
-  return (
-    <article
-      className={`group relative flex flex-col items-center text-center ${offset}`}
-    >
-      <div className="relative w-full">
-        <div
-          aria-hidden
-          className={`absolute -inset-2 -z-10 ${shape} bg-gradient-to-br from-[color:var(--orange)]/25 to-[color:var(--sky)]/40 blur-xl transition group-hover:opacity-80`}
-        />
-        <div
-          className={`${shape} relative overflow-hidden ring-1 ring-white/60 shadow-[var(--shadow-card)] transition group-hover:-translate-y-1`}
-        >
-          <img
-            src={img}
-            alt={title}
-            className="aspect-[3/4] w-full object-cover transition duration-500 group-hover:scale-105"
-            loading="lazy"
-          />
-        </div>
-      </div>
-      <h3 className="mt-5 max-w-[16ch] text-sm font-bold leading-snug text-primary sm:text-base">
-        {title}
-      </h3>
-      <span className="mt-1 h-1 w-8 rounded-full bg-[color:var(--orange)]" />
-    </article>
   );
 }
 
@@ -495,75 +386,42 @@ function SpecialtyCard({
 
 function Industries() {
   return (
-    <section id="industrias" className="relative overflow-hidden py-24">
-      {/* Image band as background */}
-      <div className="absolute inset-x-0 top-0 -z-10 h-72">
-        <img
-          src={industriesBand}
-          alt=""
-          aria-hidden
-          className="h-full w-full object-cover"
-          loading="lazy"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, color-mix(in oklab, var(--navy) 70%, transparent) 0%, var(--background) 90%)",
-          }}
-        />
-      </div>
-
+    <section className="relative py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center text-white">
-          <Eyebrow tone="light">Trabajamos con</Eyebrow>
-          <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl md:text-5xl">
+        <div className="mx-auto max-w-3xl text-center">
+          <Eyebrow>Trabajamos con</Eyebrow>
+          <h2 className="mt-3 text-3xl font-extrabold text-primary sm:text-4xl md:text-5xl">
             Empresas de todos los sectores.
           </h2>
-          <p className="mt-4 text-base text-white/80">
+          <p className="mt-4 text-base text-muted-foreground">
             Diseñamos soluciones a la medida sin importar la industria.
           </p>
         </div>
 
-        {/* Pill chips — no boxy grid */}
-        <div className="mt-16 flex flex-wrap justify-center gap-3 sm:gap-4">
-          {industries.map(({ icon: Icon, title }, i) => (
-            <span
+        <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+          {industries.map(({ icon: Icon, title }) => (
+            <div
               key={title}
-              className="group inline-flex items-center gap-2.5 rounded-full border border-primary/10 bg-white/95 px-4 py-2.5 text-sm font-semibold text-primary shadow-[var(--shadow-card)] backdrop-blur transition hover:-translate-y-0.5 hover:border-[color:var(--orange)]/40 hover:text-[color:var(--orange)] sm:px-5 sm:py-3"
-              style={{ transform: `translateY(${(i % 3) * 4}px)` }}
+              className="group flex flex-col items-start gap-3 rounded-2xl border border-border bg-card p-5 transition hover:-translate-y-1 hover:border-[color:var(--orange)]/40 hover:shadow-[var(--shadow-card)]"
             >
-              <span className="grid h-7 w-7 place-items-center rounded-full bg-[color:var(--sky-soft)] text-primary transition group-hover:bg-[color:var(--orange)] group-hover:text-accent-foreground">
-                <Icon className="h-3.5 w-3.5" />
-              </span>
-              {title}
-            </span>
+              <div className="grid h-10 w-10 place-items-center rounded-xl bg-[color:var(--sky-soft)] text-primary transition group-hover:bg-[color:var(--orange)] group-hover:text-accent-foreground">
+                <Icon className="h-4.5 w-4.5" />
+              </div>
+              <div className="text-sm font-semibold leading-snug text-primary">{title}</div>
+            </div>
           ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <a
-            href="#contacto"
-            className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-6 py-3 text-sm font-semibold text-primary transition hover:border-accent hover:text-accent"
-          >
-            ¿Tu sector no está en la lista? <ArrowRight className="h-4 w-4" />
-          </a>
         </div>
       </div>
     </section>
   );
 }
 
-/* ---------------- Clients ---------------- */
+/* ---------------- Clients (auto-slide marquee) ---------------- */
 
 function Clients() {
   const track = [...clients, ...clients];
   return (
-    <section
-      id="clientes"
-      className="relative overflow-hidden border-y border-border bg-[color:var(--cream)] py-16"
-    >
+    <section id="clientes" className="relative overflow-hidden border-y border-border bg-[color:var(--cream)] py-16">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <Eyebrow>Empresas que confían en nosotros</Eyebrow>
@@ -614,7 +472,7 @@ function CtaBanner() {
                 ¿Buscas personal confiable y listo para trabajar?
               </h2>
               <p className="mt-4 max-w-xl text-white/75">
-                Seleccionamos el talento adecuado para que tu empresa continúe creciendo sin
+                Selecciónamos el talento adecuado para que tu empresa continúe creciendo sin
                 preocuparte por los procesos de reclutamiento.
               </p>
             </div>
@@ -752,10 +610,7 @@ function ContactRow({
   return (
     <li>
       {href ? (
-        <a
-          href={href}
-          className="flex items-center gap-4 text-primary transition hover:text-[color:var(--orange)]"
-        >
+        <a href={href} className="flex items-center gap-4 text-primary transition hover:text-[color:var(--orange)]">
           {inner}
         </a>
       ) : (
@@ -818,22 +673,9 @@ function Footer() {
 
 /* ---------------- Helpers ---------------- */
 
-function Eyebrow({
-  children,
-  tone = "default",
-}: {
-  children: React.ReactNode;
-  tone?: "default" | "light";
-}) {
-  const light = tone === "light";
+function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <span
-      className={
-        light
-          ? "inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur"
-          : "inline-flex items-center gap-2 rounded-full border border-[color:var(--orange)]/30 bg-[color:var(--orange)]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--orange)]"
-      }
-    >
+    <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--orange)]/30 bg-[color:var(--orange)]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--orange)]">
       {children}
     </span>
   );
