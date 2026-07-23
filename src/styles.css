@@ -148,3 +148,17 @@
     radial-gradient(ellipse 40% 60% at 90% 10%, color-mix(in oklab, var(--orange) 14%, transparent), transparent 60%),
     radial-gradient(ellipse 45% 55% at 8% 90%, color-mix(in oklab, var(--sky) 45%, transparent), transparent 65%);
 }
+
+/* Auto-scrolling clients marquee */
+@utility marquee-track {
+  animation: tsi-marquee 38s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes tsi-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
