@@ -77,25 +77,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "LimpiaGo+ | Servicios integrales de aseo y talento humano en Bogotá" },
+      { title: "Talento y Servicios Integrales | Soluciones que impulsan tu operación" },
       {
         name: "description",
         content:
-          "Soluciones integrales de aseo, mantenimiento y talento humano para hogares, oficinas y empresas en Bogotá. Espacios que inspiran.",
+          "Conectamos tu empresa con el talento y los servicios profesionales que necesita para crecer. Cobertura nacional, procesos ágiles y +500 profesionales disponibles.",
       },
-      { name: "author", content: "LimpiaGo+" },
-      { property: "og:title", content: "LimpiaGo+ | Servicios integrales de aseo y talento humano en Bogotá" },
+      { name: "author", content: "Talento y Servicios Integrales" },
+      { property: "og:title", content: "Talento y Servicios Integrales | Soluciones que impulsan tu operación" },
       {
         property: "og:description",
         content:
-          "Soluciones integrales de aseo, mantenimiento y talento humano para hogares, oficinas y empresas en Bogotá. Espacios que inspiran.",
+          "Conectamos tu empresa con el talento y los servicios profesionales que necesita para crecer. Cobertura nacional y procesos ágiles.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "LimpiaGo+ | Servicios integrales de aseo y talento humano en Bogotá" },
-      { name: "twitter:description", content: "Soluciones integrales de aseo, mantenimiento y talento humano para hogares, oficinas y empresas en Bogotá. Espacios que inspiran." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c60b2aff-8997-4e21-abf0-86881d63f9b3/id-preview-e407a230--6a95adb1-6bdc-4831-a604-ccf02a2fe2cd.lovable.app-1783865970009.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c60b2aff-8997-4e21-abf0-86881d63f9b3/id-preview-e407a230--6a95adb1-6bdc-4831-a604-ccf02a2fe2cd.lovable.app-1783865970009.png" },
+      { name: "twitter:title", content: "Talento y Servicios Integrales | Soluciones que impulsan tu operación" },
+      { name: "twitter:description", content: "Conectamos tu empresa con el talento y los servicios profesionales que necesita para crecer." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
