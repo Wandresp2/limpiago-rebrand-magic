@@ -32,9 +32,20 @@ import {
   X,
   CheckCircle2,
   Sparkles,
+  Brush,
+  Wrench,
+  PackageCheck,
+  ShieldCheck,
+  Award,
+  FileCheck,
+  Clock,
+  ChevronDown,
+  Quote,
 } from "lucide-react";
 
 import logo from "@/assets/tsi-logo.png.asset.json";
+import heroTeam from "@/assets/hero-equipo.jpg.asset.json";
+import operacion from "@/assets/operacion.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -42,11 +53,13 @@ export const Route = createFileRoute("/")({
 
 const nav = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Nosotros", href: "#nosotros" },
-  { label: "Servicios", href: "#servicios" },
+  { label: "Líneas de negocio", href: "#lineas" },
+  { label: "Proceso", href: "#nosotros" },
+  { label: "Perfiles", href: "#perfiles" },
   { label: "Clientes", href: "#clientes" },
   { label: "Contacto", href: "#contacto" },
 ];
+
 
 const stats = [
   { icon: Users, kpi: "+500", label: "Profesionales disponibles" },
