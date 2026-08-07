@@ -328,18 +328,23 @@ function Process() {
 /* ---------------- Specialties ---------------- */
 
 function Specialties() {
+  const [showAll, setShowAll] = useState(false);
   return (
-    <section id="servicios" className="relative overflow-hidden bg-[color:var(--sky-soft)] py-24">
+    <section id="perfiles" className="relative overflow-hidden bg-[color:var(--sky-soft)] py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <Eyebrow>Profesionales que ponemos a tu disposición</Eyebrow>
+          <Eyebrow>Perfiles que impulsan tu negocio</Eyebrow>
           <h2 className="mt-3 text-3xl font-extrabold text-primary sm:text-4xl md:text-5xl">
-            Talento especializado para cada necesidad.
+            Talento especializado, agrupado por área.
           </h2>
+          <p className="mt-4 text-base text-muted-foreground">
+            Cuatro grandes familias de perfiles que cubren la mayoría de las necesidades de nuestros
+            clientes.
+          </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {specialties.map(({ icon: Icon, title }) => (
+        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {profileFamilies.map(({ icon: Icon, title, desc, roles }) => (
             <article
               key={title}
               className="group relative overflow-hidden rounded-3xl border border-white/60 bg-white p-6 shadow-[var(--shadow-card)] transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
@@ -348,39 +353,112 @@ function Specialties() {
                 <Icon className="h-5 w-5" />
               </div>
               <h3 className="mt-5 text-base font-bold text-primary">{title}</h3>
-              <ul className="mt-4 space-y-2 text-xs text-muted-foreground">
-                {["Disponibilidad inmediata", "Selección validada", "Cobertura nacional"].map((f) => (
-                  <li key={f} className="flex items-center gap-2">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-[color:var(--orange)]" />
-                    {f}
+              <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {roles.map((r) => (
+                  <li
+                    key={r}
+                    className="rounded-full bg-[color:var(--sky-soft)] px-3 py-1 text-[11px] font-medium text-primary/80"
+                  >
+                    {r}
                   </li>
                 ))}
               </ul>
-              <div className="pointer-events-none absolute -bottom-16 -right-16 h-40 w-40 rounded-full bg-[color:var(--sky)]/40 opacity-0 transition group-hover:opacity-100" />
             </article>
           ))}
-          <a
-            href="#contacto"
-            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl bg-primary p-6 text-primary-foreground shadow-[var(--shadow-soft)] transition hover:-translate-y-1"
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <button
+            onClick={() => setShowAll((v) => !v)}
+            aria-expanded={showAll}
+            className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-6 py-3 text-sm font-semibold text-primary transition hover:border-accent hover:text-accent"
           >
-            <div>
-              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-white/10 text-[color:var(--orange)]">
-                <Sparkles className="h-5 w-5" />
-              </div>
-              <h3 className="mt-5 text-base font-bold">¿Necesitas otro perfil?</h3>
-              <p className="mt-2 text-sm text-white/75">
-                Contamos con una amplia red de profesionales listos para tu operación.
-              </p>
+            {showAll ? "Ocultar perfiles" : "Ver todos los perfiles"}
+            <ChevronDown className={`h-4 w-4 transition ${showAll ? "rotate-180" : ""}`} />
+          </button>
+        </div>
+
+        {showAll && (
+          <div className="mt-8 rounded-3xl border border-white/60 bg-white p-6 shadow-[var(--shadow-card)] sm:p-8">
+            <div className="grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+              {allProfiles.map((p) => (
+                <div key={p} className="flex items-center gap-2 text-sm text-primary/80">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-[color:var(--orange)]" />
+                  {p}
+                </div>
+              ))}
             </div>
-            <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--orange)]">
-              Cuéntanos <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-            </span>
-          </a>
+            <a
+              href="#contacto"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-orange)] transition hover:brightness-110"
+            >
+              Solicitar un perfil <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Trust: testimonios y certificaciones ---------------- */
+
+function Trust() {
+  return (
+    <section id="confianza" className="relative py-24">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <Eyebrow>Confianza respaldada</Eyebrow>
+          <h2 className="mt-3 text-3xl font-extrabold text-primary sm:text-4xl md:text-5xl">
+            Empresas reales, resultados reales.
+          </h2>
+        </div>
+
+        <div className="mt-14 grid grid-cols-1 gap-5 lg:grid-cols-3">
+          {testimonials.map((t) => (
+            <figure
+              key={t.name}
+              className="flex flex-col rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-card)] transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
+            >
+              <Quote className="h-7 w-7 text-[color:var(--orange)]" />
+              <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-primary/80">
+                “{t.quote}”
+              </blockquote>
+              <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-5">
+                <span className="grid h-11 w-11 place-items-center rounded-full bg-[color:var(--sky-soft)] text-sm font-bold text-primary">
+                  {t.initials}
+                </span>
+                <span>
+                  <span className="block text-sm font-semibold text-primary">{t.name}</span>
+                  <span className="block text-xs text-muted-foreground">{t.role}</span>
+                </span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {certifications.map(({ icon: Icon, title, desc }) => (
+            <div
+              key={title}
+              className="flex items-start gap-4 rounded-2xl border border-border bg-[color:var(--cream)] p-5"
+            >
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white text-[color:var(--orange)]">
+                <Icon className="h-5 w-5" />
+              </span>
+              <span>
+                <span className="block text-sm font-bold text-primary">{title}</span>
+                <span className="mt-1 block text-xs text-muted-foreground">{desc}</span>
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
+
 
 /* ---------------- Industries ---------------- */
 
