@@ -230,21 +230,21 @@ function Hero() {
         style={{ background: "color-mix(in oklab, var(--orange) 45%, transparent)" }}
       />
 
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-5 py-20 md:py-28 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-5 py-20 md:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
         <div>
           <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--orange)]/30 bg-white px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--orange)]">
-            <Sparkles className="h-3.5 w-3.5" /> Gestión de talento
+            <Sparkles className="h-3.5 w-3.5" /> Talento y servicios integrales
           </span>
-          <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] text-primary sm:text-5xl md:text-6xl">
-            Conectamos tu empresa con el{" "}
+          <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] text-primary sm:text-5xl md:text-[3.4rem]">
+            Encontramos el talento adecuado para que tu empresa sea{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-[color:var(--orange)]">talento ideal</span>
+              <span className="relative z-10 text-[color:var(--orange)]">más productiva</span>
               <span className="absolute bottom-1 left-0 -z-0 h-3 w-full rounded bg-[color:var(--orange)]/20" />
             </span>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-primary/75">
-            Profesionales calificados, procesos ágiles y cobertura nacional para fortalecer tu
-            operación desde el primer día.
+            Menos tiempo reclutando, menos rotación y una operación que no se detiene: talento
+            humano, servicios generales, aseo y outsourcing en un solo aliado.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
@@ -254,36 +254,137 @@ function Hero() {
               Solicitar talento <ArrowRight className="h-4 w-4" />
             </a>
             <a
-              href="https://wa.me/573219631010"
-              target="_blank"
-              rel="noreferrer"
+              href="#lineas"
               className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-6 py-3.5 text-sm font-semibold text-primary transition hover:border-accent hover:text-accent"
             >
-              Hablar con un asesor
+              Ver nuestros servicios
             </a>
           </div>
         </div>
 
         <div className="relative">
-          <div className="grid grid-cols-2 gap-4 sm:gap-5">
-            {stats.map(({ icon: Icon, kpi, label }) => (
-              <div
-                key={label}
-                className="rounded-3xl border border-primary/10 bg-white p-5 shadow-[var(--shadow-card)] transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
-              >
-                <div className="grid h-11 w-11 place-items-center rounded-2xl bg-[color:var(--orange)]/10 text-[color:var(--orange)]">
-                  <Icon className="h-5 w-5" />
-                </div>
-                <div className="mt-4 text-2xl font-extrabold text-primary">{kpi}</div>
-                <div className="mt-1 text-xs leading-snug text-muted-foreground">{label}</div>
+          <div className="relative overflow-hidden rounded-[2rem] shadow-[var(--shadow-soft)]">
+            <img
+              src={heroTeam.url}
+              alt="Equipo de profesionales de Talento y Servicios Integrales en oficina"
+              width={1200}
+              height={1408}
+              className="h-[420px] w-full object-cover object-top sm:h-[500px]"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(180deg, transparent 45%, color-mix(in oklab, var(--navy) 75%, transparent) 100%)",
+              }}
+            />
+            <div className="absolute bottom-5 left-5 right-5 flex items-center gap-3 rounded-2xl bg-white/95 px-4 py-3 backdrop-blur">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[color:var(--orange)] text-accent-foreground">
+                <ShieldCheck className="h-5 w-5" />
+              </span>
+              <span className="text-xs font-medium leading-snug text-primary">
+                Personal verificado, afiliado y con acompañamiento permanente.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative border-t border-primary/10 bg-white/70">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-5 py-8 lg:grid-cols-4 lg:px-8">
+          {stats.map(({ icon: Icon, kpi, label }) => (
+            <div key={label} className="flex items-center gap-3">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[color:var(--orange)]/10 text-[color:var(--orange)]">
+                <Icon className="h-5 w-5" />
+              </span>
+              <span>
+                <span className="block text-xl font-extrabold text-primary">{kpi}</span>
+                <span className="block text-[11px] leading-snug text-muted-foreground">{label}</span>
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Líneas de negocio ---------------- */
+
+function BusinessLines() {
+  return (
+    <section id="lineas" className="relative py-24">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <Eyebrow>Nuestras líneas de negocio</Eyebrow>
+          <h2 className="mt-3 text-3xl font-extrabold text-primary sm:text-4xl md:text-5xl">
+            Mucho más que talento humano.
+          </h2>
+          <p className="mt-4 text-base text-muted-foreground">
+            Cuatro líneas complementarias para que tu empresa opere sin interrupciones.
+          </p>
+        </div>
+
+        <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {businessLines.map(({ icon: Icon, title, desc, bullets }) => (
+            <article
+              key={title}
+              className="group flex flex-col rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-card)] transition hover:-translate-y-1 hover:border-[color:var(--orange)]/40 hover:shadow-[var(--shadow-soft)]"
+            >
+              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[color:var(--sky-soft)] text-primary transition group-hover:bg-[color:var(--orange)] group-hover:text-accent-foreground">
+                <Icon className="h-5 w-5" />
               </div>
-            ))}
+              <h3 className="mt-5 text-lg font-bold text-primary">{title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
+              <ul className="mt-4 flex-1 space-y-2 text-xs text-primary/75">
+                {bullets.map((b) => (
+                  <li key={b} className="flex items-start gap-2">
+                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[color:var(--orange)]" />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#contacto"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--orange)]"
+              >
+                Cotizar <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-14 grid grid-cols-1 items-center gap-8 overflow-hidden rounded-[2rem] border border-border bg-[color:var(--cream)] lg:grid-cols-2">
+          <img
+            src={operacion.url}
+            alt="Supervisor coordinando al personal operativo de servicios generales"
+            loading="lazy"
+            width={1200}
+            height={912}
+            className="h-full max-h-[360px] w-full object-cover"
+          />
+          <div className="p-8 lg:p-10">
+            <h3 className="text-2xl font-extrabold text-primary sm:text-3xl">
+              Un aliado que responde en campo, no solo en papel.
+            </h3>
+            <p className="mt-4 text-sm text-primary/75">
+              Supervisión permanente, reemplazos garantizados y reportes de gestión para que siempre
+              sepas cómo va tu operación.
+            </p>
+            <a
+              href="#contacto"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-orange)] transition hover:brightness-110"
+            >
+              Agendar una visita <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 /* ---------------- Process ---------------- */
 
