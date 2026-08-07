@@ -60,7 +60,6 @@ const nav = [
   { label: "Contacto", href: "#contacto" },
 ];
 
-
 const stats = [
   { icon: Users, kpi: "+500", label: "Profesionales disponibles" },
   { icon: Building2, kpi: "+100", label: "Empresas confían en nosotros" },
@@ -198,12 +197,15 @@ const testimonials = [
 ];
 
 const certifications = [
-  { icon: ShieldCheck, title: "Personal verificado", desc: "Referencias y antecedentes validados." },
+  {
+    icon: ShieldCheck,
+    title: "Personal verificado",
+    desc: "Referencias y antecedentes validados.",
+  },
   { icon: Award, title: "Calidad en procesos", desc: "Protocolos y estándares documentados." },
   { icon: FileCheck, title: "Cumplimiento legal", desc: "Afiliaciones y nómina al día." },
   { icon: Clock, title: "Respuesta 24 horas", desc: "Reemplazos y soporte oportuno." },
 ];
-
 
 const industries = [
   { icon: Building2, title: "Empresas privadas" },
@@ -247,7 +249,6 @@ function Landing() {
         <Clients />
         <CtaBanner />
         <Contact />
-
       </main>
       <Footer />
     </div>
@@ -410,7 +411,9 @@ function Hero() {
               </span>
               <span>
                 <span className="block text-xl font-extrabold text-primary">{kpi}</span>
-                <span className="block text-[11px] leading-snug text-muted-foreground">{label}</span>
+                <span className="block text-[11px] leading-snug text-muted-foreground">
+                  {label}
+                </span>
               </span>
             </div>
           ))}
@@ -494,7 +497,6 @@ function BusinessLines() {
     </section>
   );
 }
-
 
 /* ---------------- Process ---------------- */
 
@@ -670,7 +672,6 @@ function Trust() {
   );
 }
 
-
 /* ---------------- Industries ---------------- */
 
 function Industries() {
@@ -710,7 +711,10 @@ function Industries() {
 function Clients() {
   const track = [...clients, ...clients];
   return (
-    <section id="clientes" className="relative overflow-hidden border-y border-border bg-[color:var(--cream)] py-16">
+    <section
+      id="clientes"
+      className="relative overflow-hidden border-y border-border bg-[color:var(--cream)] py-16"
+    >
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <Eyebrow>Empresas que confían en nosotros</Eyebrow>
@@ -835,7 +839,12 @@ function Contact() {
               className="sm:col-span-2"
               required
             />
-            <Field label="Teléfono" name="telefono" placeholder="Celular" className="sm:col-span-2" />
+            <Field
+              label="Teléfono"
+              name="telefono"
+              placeholder="Celular"
+              className="sm:col-span-2"
+            />
             <div className="sm:col-span-2">
               <label className="text-xs font-semibold uppercase tracking-wider text-primary">
                 ¿Qué necesitas?
@@ -899,7 +908,10 @@ function ContactRow({
   return (
     <li>
       {href ? (
-        <a href={href} className="flex items-center gap-4 text-primary transition hover:text-[color:var(--orange)]">
+        <a
+          href={href}
+          className="flex items-center gap-4 text-primary transition hover:text-[color:var(--orange)]"
+        >
           {inner}
         </a>
       ) : (
