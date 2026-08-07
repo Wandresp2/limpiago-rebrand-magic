@@ -132,12 +132,15 @@ function Landing() {
       <Header />
       <main>
         <Hero />
+        <BusinessLines />
         <Process />
         <Specialties />
         <Industries />
+        <Trust />
         <Clients />
         <CtaBanner />
         <Contact />
+
       </main>
       <Footer />
     </div>
