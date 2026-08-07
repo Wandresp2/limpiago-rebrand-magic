@@ -88,15 +88,109 @@ const process = [
   },
 ];
 
-const specialties = [
-  { icon: Code2, title: "Ingeniería de Sistemas" },
-  { icon: Factory, title: "Ingeniería Industrial" },
-  { icon: Calculator, title: "Contaduría Pública" },
-  { icon: Briefcase, title: "Administración de Empresas" },
-  { icon: Megaphone, title: "Marketing" },
-  { icon: Palette, title: "Diseño Gráfico" },
-  { icon: Scale, title: "Derecho y Asesoría Jurídica" },
+const businessLines = [
+  {
+    icon: Users,
+    title: "Talento humano",
+    desc: "Reclutamiento, selección y vinculación de personal calificado.",
+    bullets: ["Perfiles profesionales y técnicos", "Selección validada", "Garantía de reemplazo"],
+  },
+  {
+    icon: Brush,
+    title: "Aseo y limpieza",
+    desc: "Servicios de aseo profesional para todo tipo de instalaciones.",
+    bullets: ["Aseo corporativo y hospitalario", "Limpieza post-obra", "Insumos y maquinaria"],
+  },
+  {
+    icon: Wrench,
+    title: "Servicios generales",
+    desc: "Mantenimiento y apoyo operativo para tu infraestructura.",
+    bullets: ["Mantenimiento locativo", "Jardinería y zonas comunes", "Personal de apoyo"],
+  },
+  {
+    icon: PackageCheck,
+    title: "Outsourcing",
+    desc: "Tercerizamos procesos completos y asumimos la administración.",
+    bullets: ["Nómina y afiliaciones", "Supervisión en sitio", "Reportes de gestión"],
+  },
 ];
+
+const profileFamilies = [
+  {
+    icon: Code2,
+    title: "Tecnología e ingeniería",
+    desc: "Perfiles técnicos para proyectos y operación.",
+    roles: ["Ing. de Sistemas", "Ing. Industrial", "Soporte TI"],
+  },
+  {
+    icon: Calculator,
+    title: "Administración y finanzas",
+    desc: "Gestión contable y administrativa confiable.",
+    roles: ["Contaduría", "Administración", "Auxiliares"],
+  },
+  {
+    icon: Megaphone,
+    title: "Comercial y marketing",
+    desc: "Equipos que impulsan tus ventas y tu marca.",
+    roles: ["Marketing", "Diseño gráfico", "Comercial"],
+  },
+  {
+    icon: Scale,
+    title: "Legal y cumplimiento",
+    desc: "Acompañamiento jurídico y normativo.",
+    roles: ["Derecho", "Asesoría jurídica", "SST"],
+  },
+];
+
+const allProfiles = [
+  "Ingeniería de Sistemas",
+  "Ingeniería Industrial",
+  "Soporte y mesa de ayuda TI",
+  "Contaduría Pública",
+  "Administración de Empresas",
+  "Auxiliares administrativos",
+  "Marketing y comunicaciones",
+  "Diseño Gráfico",
+  "Asesores comerciales",
+  "Derecho y asesoría jurídica",
+  "Seguridad y Salud en el Trabajo",
+  "Talento humano y nómina",
+  "Operarios y personal de aseo",
+  "Mantenimiento locativo",
+  "Logística y almacén",
+];
+
+const testimonials = [
+  {
+    initials: "MG",
+    name: "María Gómez",
+    role: "Gerente Administrativa, sector salud",
+    quote:
+      "Cubrieron cinco vacantes críticas en menos de dos semanas. La rotación bajó y el acompañamiento fue constante.",
+  },
+  {
+    initials: "JR",
+    name: "Julián Ramírez",
+    role: "Jefe de Operaciones, industria",
+    quote:
+      "El servicio de aseo y mantenimiento se estandarizó por completo. Hoy recibimos reportes mensuales y todo funciona.",
+  },
+  {
+    initials: "CL",
+    name: "Carolina López",
+    role: "Directora de Talento Humano, retail",
+    quote:
+      "Delegamos la nómina y las afiliaciones. Nos liberó tiempo para enfocarnos en el negocio sin perder control.",
+  },
+];
+
+const certifications = [
+  { icon: ShieldCheck, title: "Personal verificado", desc: "Referencias y antecedentes validados." },
+  { icon: Award, title: "Calidad en procesos", desc: "Protocolos y estándares documentados." },
+  { icon: FileCheck, title: "Cumplimiento legal", desc: "Afiliaciones y nómina al día." },
+  { icon: Clock, title: "Respuesta 24 horas", desc: "Reemplazos y soporte oportuno." },
+];
+
 
 const industries = [
   { icon: Building2, title: "Empresas privadas" },
