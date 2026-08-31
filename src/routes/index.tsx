@@ -6,217 +6,199 @@ import {
   ClipboardCheck,
   Handshake,
   BarChart3,
-  Code2,
-  Calculator,
-  Megaphone,
-  Scale,
+  Network,
   Building2,
-  HardHat,
-  ShoppingBag,
-  Home as HomeIcon,
-  Stethoscope,
-  GraduationCap,
-  Landmark,
-  Truck,
-  Hotel,
-  UtensilsCrossed,
-  Rocket,
+  Package,
+  Sparkles,
   Phone,
   Mail,
   MapPin,
   ArrowRight,
   Menu,
   X,
-  CheckCircle2,
-  Sparkles,
-  Brush,
-  Wrench,
-  PackageCheck,
+  Check,
   ShieldCheck,
-  Award,
-  FileCheck,
+  BadgeCheck,
   Clock,
+  Leaf,
   ChevronDown,
   Quote,
 } from "lucide-react";
 
 import logo from "@/assets/tsi-logo.png.asset.json";
-import heroTeam from "@/assets/hero-equipo.jpg.asset.json";
+import heroTeam from "@/assets/hero-tsi.jpg.asset.json";
 import operacion from "@/assets/operacion.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
+  head: () => ({
+    meta: [
+      { title: "TSI | Talento y servicios integrales para tu operación" },
+      {
+        name: "description",
+        content:
+          "Aseo, mantenimiento, talento humano, tecnología y suministros. Soluciones integrales que mantienen tu operación funcionando en Colombia.",
+      },
+      { property: "og:title", content: "TSI | Soluciones que impulsan tu operación" },
+      {
+        property: "og:description",
+        content:
+          "Operación y mantenimiento, gestión de talento, soluciones tecnológicas y suministros para empresas de todos los sectores.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
 });
 
 const nav = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Líneas de negocio", href: "#lineas" },
-  { label: "Proceso", href: "#nosotros" },
-  { label: "Perfiles", href: "#perfiles" },
+  { label: "Soluciones", href: "#soluciones" },
+  { label: "Proceso", href: "#proceso" },
+  { label: "Sectores", href: "#sectores" },
   { label: "Clientes", href: "#clientes" },
   { label: "Contacto", href: "#contacto" },
 ];
 
+const pillars = [
+  { icon: ShieldCheck, title: "Confianza y transparencia" },
+  { icon: BadgeCheck, title: "Calidad garantizada" },
+  { icon: Clock, title: "Respuesta inmediata" },
+  { icon: Leaf, title: "Compromiso sostenible" },
+];
+
 const stats = [
-  { icon: Users, kpi: "+500", label: "Profesionales disponibles" },
-  { icon: Building2, kpi: "+100", label: "Empresas confían en nosotros" },
-  { icon: Sparkles, kpi: "98%", label: "Satisfacción de clientes" },
-  { icon: MapPin, kpi: "Nacional", label: "Cobertura eficiente y oportuna" },
+  { kpi: "+500", label: "Personas en operación" },
+  { kpi: "+100", label: "Empresas atendidas" },
+  { kpi: "98%", label: "Satisfacción" },
+  { kpi: "24 h", label: "Tiempo de respuesta" },
+];
+
+type Solution = {
+  icon: typeof Users;
+  eyebrow: string;
+  title: string;
+  desc: string;
+  main: string[];
+  all: string[];
+  featured?: boolean;
+};
+
+const solutions: Solution[] = [
+  {
+    icon: Building2,
+    eyebrow: "Línea principal",
+    title: "Operación y mantenimiento",
+    desc: "Mantenemos limpios, seguros y operativos tus espacios, todos los días.",
+    main: ["Aseo empresarial y de oficinas", "Aseo en PH y centros comerciales", "Mantenimiento locativo"],
+    all: [
+      "Aseo residencial, empresarial y de oficinas",
+      "Propiedad horizontal y centros comerciales",
+      "Limpieza post-obra",
+      "Desinfección de áreas",
+      "Tratamiento y brillado de pisos",
+      "Lavado de vidrios y fachadas",
+      "Lavado de tanques",
+      "Aseo de parqueaderos",
+      "Mantenimiento locativo",
+      "Jardinería y zonas verdes",
+      "Manejo de residuos",
+      "Toderos, portería y recepción",
+    ],
+    featured: true,
+  },
+  {
+    icon: Users,
+    eyebrow: "Talento",
+    title: "Gestión de talento",
+    desc: "Personal calificado y especializado, profesional y operativo, listo para sumarse.",
+    main: ["Selección y administración de personal", "Personal operativo y de servicios", "Capacitación y desarrollo"],
+    all: [
+      "Selección y administración de personal",
+      "Perfiles profesionales y técnicos",
+      "Personal de aseo y servicios generales",
+      "Toderos y mantenimiento",
+      "Jardinería",
+      "Portería y recepción",
+      "Nómina, afiliaciones y cumplimiento",
+      "Capacitación y desarrollo",
+      "Supervisión y seguimiento en sitio",
+    ],
+  },
+  {
+    icon: Package,
+    eyebrow: "Abastecimiento",
+    title: "Suministros y abastecimiento",
+    desc: "Insumos y materiales oportunos para que la operación nunca se detenga.",
+    main: ["Insumos y productos de aseo", "Dotación y elementos de protección", "Gestión de inventarios"],
+    all: [
+      "Insumos y productos de aseo",
+      "Materiales para la operación",
+      "Dotación y elementos de protección",
+      "Maquinaria y equipos de limpieza",
+      "Gestión de inventarios",
+      "Abastecimiento programado",
+    ],
+  },
+  {
+    icon: Network,
+    eyebrow: "Tecnología",
+    title: "Soluciones tecnológicas",
+    desc: "Apoyo tecnológico para conectar, proteger y optimizar tus procesos.",
+    main: ["Soporte técnico y redes", "Bases de datos y desarrollo", "Ciberseguridad"],
+    all: [
+      "Soporte técnico y mesa de ayuda",
+      "Redes y conectividad",
+      "Desarrollo de software",
+      "Bases de datos",
+      "Ciberseguridad",
+      "Transformación digital",
+    ],
+  },
 ];
 
 const process = [
-  {
-    n: "01",
-    icon: Users,
-    title: "Entendemos tus necesidades",
-    desc: "Analizamos tu cultura, objetivos y perfil requerido.",
-  },
-  {
-    n: "02",
-    icon: Search,
-    title: "Buscamos y seleccionamos",
-    desc: "Realizamos un filtro riguroso de candidatos.",
-  },
-  {
-    n: "03",
-    icon: ClipboardCheck,
-    title: "Evaluamos y garantizamos",
-    desc: "Verificamos competencias, referencias y habilidades.",
-  },
-  {
-    n: "04",
-    icon: Handshake,
-    title: "Integramos al talento",
-    desc: "Acompañamos el proceso de vinculación completo.",
-  },
-  {
-    n: "05",
-    icon: BarChart3,
-    title: "Hacemos seguimiento",
-    desc: "Medimos resultados y aseguramos continuidad.",
-  },
+  { icon: Search, title: "Entendemos", desc: "Analizamos tu operación y lo que realmente necesitas." },
+  { icon: ClipboardCheck, title: "Diseñamos", desc: "Armamos una solución a la medida, con alcance claro." },
+  { icon: Users, title: "Seleccionamos", desc: "Verificamos personal, competencias y antecedentes." },
+  { icon: Handshake, title: "Implementamos", desc: "Ponemos en marcha con supervisión desde el día uno." },
+  { icon: BarChart3, title: "Acompañamos", desc: "Medimos, reportamos y ajustamos de forma continua." },
 ];
 
-const businessLines = [
-  {
-    icon: Users,
-    title: "Talento humano",
-    desc: "Reclutamiento, selección y vinculación de personal calificado.",
-    bullets: ["Perfiles profesionales y técnicos", "Selección validada", "Garantía de reemplazo"],
-  },
-  {
-    icon: Brush,
-    title: "Aseo y limpieza",
-    desc: "Servicios de aseo profesional para todo tipo de instalaciones.",
-    bullets: ["Aseo corporativo y hospitalario", "Limpieza post-obra", "Insumos y maquinaria"],
-  },
-  {
-    icon: Wrench,
-    title: "Servicios generales",
-    desc: "Mantenimiento y apoyo operativo para tu infraestructura.",
-    bullets: ["Mantenimiento locativo", "Jardinería y zonas comunes", "Personal de apoyo"],
-  },
-  {
-    icon: PackageCheck,
-    title: "Outsourcing",
-    desc: "Tercerizamos procesos completos y asumimos la administración.",
-    bullets: ["Nómina y afiliaciones", "Supervisión en sitio", "Reportes de gestión"],
-  },
-];
-
-const profileFamilies = [
-  {
-    icon: Code2,
-    title: "Tecnología e ingeniería",
-    desc: "Perfiles técnicos para proyectos y operación.",
-    roles: ["Ing. de Sistemas", "Ing. Industrial", "Soporte TI"],
-  },
-  {
-    icon: Calculator,
-    title: "Administración y finanzas",
-    desc: "Gestión contable y administrativa confiable.",
-    roles: ["Contaduría", "Administración", "Auxiliares"],
-  },
-  {
-    icon: Megaphone,
-    title: "Comercial y marketing",
-    desc: "Equipos que impulsan tus ventas y tu marca.",
-    roles: ["Marketing", "Diseño gráfico", "Comercial"],
-  },
-  {
-    icon: Scale,
-    title: "Legal y cumplimiento",
-    desc: "Acompañamiento jurídico y normativo.",
-    roles: ["Derecho", "Asesoría jurídica", "SST"],
-  },
-];
-
-const allProfiles = [
-  "Ingeniería de Sistemas",
-  "Ingeniería Industrial",
-  "Soporte y mesa de ayuda TI",
-  "Contaduría Pública",
-  "Administración de Empresas",
-  "Auxiliares administrativos",
-  "Marketing y comunicaciones",
-  "Diseño Gráfico",
-  "Asesores comerciales",
-  "Derecho y asesoría jurídica",
-  "Seguridad y Salud en el Trabajo",
-  "Talento humano y nómina",
-  "Operarios y personal de aseo",
-  "Mantenimiento locativo",
-  "Logística y almacén",
+const sectors = [
+  "Industria",
+  "Oficinas y empresas",
+  "Propiedad horizontal",
+  "Centros comerciales",
+  "Hoteles",
+  "Restaurantes",
+  "Clínicas y salud",
+  "Educación",
+  "Sector financiero",
+  "Logística y transporte",
+  "Entidades públicas",
+  "Startups y tecnología",
 ];
 
 const testimonials = [
   {
     initials: "MG",
     name: "María Gómez",
-    role: "Gerente Administrativa, sector salud",
-    quote:
-      "Cubrieron cinco vacantes críticas en menos de dos semanas. La rotación bajó y el acompañamiento fue constante.",
+    role: "Gerente Administrativa, salud",
+    quote: "El aseo y la desinfección se estandarizaron por completo. Hoy todo funciona sin que tengamos que estar encima.",
   },
   {
     initials: "JR",
     name: "Julián Ramírez",
     role: "Jefe de Operaciones, industria",
-    quote:
-      "El servicio de aseo y mantenimiento se estandarizó por completo. Hoy recibimos reportes mensuales y todo funciona.",
+    quote: "Supervisión real en campo y reemplazos el mismo día. Eso marcó la diferencia frente a otros proveedores.",
   },
   {
     initials: "CL",
     name: "Carolina López",
-    role: "Directora de Talento Humano, retail",
-    quote:
-      "Delegamos la nómina y las afiliaciones. Nos liberó tiempo para enfocarnos en el negocio sin perder control.",
+    role: "Directora de Talento, retail",
+    quote: "Delegamos personal operativo y nómina. Nos liberó tiempo sin perder control de la operación.",
   },
-];
-
-const certifications = [
-  {
-    icon: ShieldCheck,
-    title: "Personal verificado",
-    desc: "Referencias y antecedentes validados.",
-  },
-  { icon: Award, title: "Calidad en procesos", desc: "Protocolos y estándares documentados." },
-  { icon: FileCheck, title: "Cumplimiento legal", desc: "Afiliaciones y nómina al día." },
-  { icon: Clock, title: "Respuesta 24 horas", desc: "Reemplazos y soporte oportuno." },
-];
-
-const industries = [
-  { icon: Building2, title: "Empresas privadas" },
-  { icon: HardHat, title: "Industria" },
-  { icon: ShoppingBag, title: "Centros comerciales" },
-  { icon: HomeIcon, title: "Propiedad horizontal" },
-  { icon: Stethoscope, title: "Clínicas y hospitales" },
-  { icon: GraduationCap, title: "Instituciones educativas" },
-  { icon: Landmark, title: "Sector financiero" },
-  { icon: Truck, title: "Logística y transporte" },
-  { icon: Hotel, title: "Hoteles" },
-  { icon: UtensilsCrossed, title: "Restaurantes" },
-  { icon: Landmark, title: "Entidades públicas" },
-  { icon: Rocket, title: "Startups y tecnológicas" },
 ];
 
 const clients = [
@@ -238,10 +220,10 @@ function Landing() {
       <Header />
       <main>
         <Hero />
-        <BusinessLines />
+        <Solutions />
+        <Operacion />
         <Process />
-        <Specialties />
-        <Industries />
+        <Sectors />
         <Trust />
         <Clients />
         <CtaBanner />
@@ -274,12 +256,6 @@ function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <a
-            href="tel:+573219631010"
-            className="hidden items-center gap-2 rounded-full border border-primary/15 px-4 py-2 text-sm font-medium text-primary transition hover:border-accent hover:text-accent lg:inline-flex"
-          >
-            <Phone className="h-4 w-4" /> 321 963 1010
-          </a>
           <a
             href="#contacto"
             className="hidden items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-orange)] transition hover:brightness-110 sm:inline-flex"
@@ -329,89 +305,72 @@ function Hero() {
     <section id="inicio" className="relative isolate overflow-hidden bg-[color:var(--cream)]">
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 -right-40 h-[520px] w-[520px] rounded-full opacity-40 blur-3xl"
+        className="pointer-events-none absolute -right-24 -top-32 h-[560px] w-[560px] rounded-full opacity-50 blur-3xl"
         style={{ background: "color-mix(in oklab, var(--sky) 55%, transparent)" }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-24 -left-24 h-[420px] w-[420px] rounded-full opacity-30 blur-3xl"
-        style={{ background: "color-mix(in oklab, var(--orange) 45%, transparent)" }}
       />
 
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-5 py-20 md:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--orange)]/30 bg-white px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--orange)]">
-            <Sparkles className="h-3.5 w-3.5" /> Talento y servicios integrales
-          </span>
-          <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] text-primary sm:text-5xl md:text-[3.4rem]">
-            Encontramos el talento adecuado para que tu empresa sea{" "}
-            <span className="relative inline-block">
-              <span className="relative z-10 text-[color:var(--orange)]">más productiva</span>
-              <span className="absolute bottom-1 left-0 -z-0 h-3 w-full rounded bg-[color:var(--orange)]/20" />
-            </span>
+          <Eyebrow>Soluciones que impulsan tu operación</Eyebrow>
+          <h1 className="mt-6 text-4xl font-extrabold leading-[1.06] text-primary sm:text-5xl md:text-[3.3rem]">
+            Talento y servicios integrales para que tu operación{" "}
+            <span className="text-[color:var(--orange)]">nunca se detenga</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-primary/75">
-            Menos tiempo reclutando, menos rotación y una operación que no se detiene: talento
-            humano, servicios generales, aseo y outsourcing en un solo aliado.
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary/70">
+            Aseo y mantenimiento, personal calificado, suministros y tecnología. Un solo aliado que
+            responde con eficiencia, seguridad y calidad.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href="#contacto"
               className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-orange)] transition hover:brightness-110"
             >
-              Solicitar talento <ArrowRight className="h-4 w-4" />
+              Solicitar cotización <ArrowRight className="h-4 w-4" />
             </a>
             <a
-              href="#lineas"
-              className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-6 py-3.5 text-sm font-semibold text-primary transition hover:border-accent hover:text-accent"
+              href="#soluciones"
+              className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white px-6 py-3.5 text-sm font-semibold text-primary transition hover:border-accent hover:text-accent"
             >
-              Ver nuestros servicios
+              Ver soluciones
             </a>
+          </div>
+
+          <div className="mt-12 grid grid-cols-2 gap-x-8 gap-y-5 sm:grid-cols-4">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <div className="text-2xl font-extrabold text-primary">{s.kpi}</div>
+                <div className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
+                  {s.label}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="relative">
-          <div className="relative overflow-hidden rounded-[2rem] shadow-[var(--shadow-soft)]">
+          <div
+            aria-hidden
+            className="absolute -inset-x-6 -top-6 bottom-10 rounded-[3rem] rounded-bl-[8rem]"
+            style={{ background: "color-mix(in oklab, var(--orange) 12%, transparent)" }}
+          />
+          <div className="relative overflow-hidden rounded-[2rem] rounded-bl-[6rem] shadow-[var(--shadow-soft)]">
             <img
               src={heroTeam.url}
-              alt="Equipo de profesionales de Talento y Servicios Integrales en oficina"
+              alt="Equipo uniformado de Talento y Servicios Integrales en una oficina moderna"
               width={1200}
-              height={1408}
-              className="h-[420px] w-full object-cover object-top sm:h-[500px]"
+              height={1200}
+              className="h-[440px] w-full object-cover object-top sm:h-[520px]"
             />
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(180deg, transparent 45%, color-mix(in oklab, var(--navy) 75%, transparent) 100%)",
-              }}
-            />
-            <div className="absolute bottom-5 left-5 right-5 flex items-center gap-3 rounded-2xl bg-white/95 px-4 py-3 backdrop-blur">
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[color:var(--orange)] text-accent-foreground">
-                <ShieldCheck className="h-5 w-5" />
-              </span>
-              <span className="text-xs font-medium leading-snug text-primary">
-                Personal verificado, afiliado y con acompañamiento permanente.
-              </span>
-            </div>
           </div>
         </div>
       </div>
 
       <div className="relative border-t border-primary/10 bg-white/70">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-5 py-8 lg:grid-cols-4 lg:px-8">
-          {stats.map(({ icon: Icon, kpi, label }) => (
-            <div key={label} className="flex items-center gap-3">
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[color:var(--orange)]/10 text-[color:var(--orange)]">
-                <Icon className="h-5 w-5" />
-              </span>
-              <span>
-                <span className="block text-xl font-extrabold text-primary">{kpi}</span>
-                <span className="block text-[11px] leading-snug text-muted-foreground">
-                  {label}
-                </span>
-              </span>
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-5 py-7 lg:grid-cols-4 lg:px-8">
+          {pillars.map(({ icon: Icon, title }) => (
+            <div key={title} className="flex items-center gap-3">
+              <Icon className="h-5 w-5 shrink-0 text-[color:var(--orange)]" strokeWidth={1.6} />
+              <span className="text-xs font-semibold leading-snug text-primary">{title}</span>
             </div>
           ))}
         </div>
@@ -420,71 +379,133 @@ function Hero() {
   );
 }
 
-/* ---------------- Líneas de negocio ---------------- */
+/* ---------------- Soluciones ---------------- */
 
-function BusinessLines() {
+function Solutions() {
   return (
-    <section id="lineas" className="relative py-24">
+    <section id="soluciones" className="relative py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <Eyebrow>Nuestras líneas de negocio</Eyebrow>
-          <h2 className="mt-3 text-3xl font-extrabold text-primary sm:text-4xl md:text-5xl">
-            Mucho más que talento humano.
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-extrabold text-primary sm:text-4xl md:text-[2.75rem]">
+            Nuestras <span className="text-[color:var(--orange)]">soluciones integrales</span>
           </h2>
           <p className="mt-4 text-base text-muted-foreground">
-            Cuatro líneas complementarias para que tu empresa opere sin interrupciones.
+            Cuatro líneas que se complementan. Empezamos por lo que hoy necesitas y crecemos
+            contigo.
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {businessLines.map(({ icon: Icon, title, desc, bullets }) => (
-            <article
-              key={title}
-              className="group flex flex-col rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-card)] transition hover:-translate-y-1 hover:border-[color:var(--orange)]/40 hover:shadow-[var(--shadow-soft)]"
-            >
-              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[color:var(--sky-soft)] text-primary transition group-hover:bg-[color:var(--orange)] group-hover:text-accent-foreground">
-                <Icon className="h-5 w-5" />
-              </div>
-              <h3 className="mt-5 text-lg font-bold text-primary">{title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
-              <ul className="mt-4 flex-1 space-y-2 text-xs text-primary/75">
-                {bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[color:var(--orange)]" />
-                    {b}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="#contacto"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--orange)]"
-              >
-                Cotizar <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-              </a>
-            </article>
+        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {solutions.map((s) => (
+            <SolutionCard key={s.title} solution={s} />
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
 
-        <div className="mt-14 grid grid-cols-1 items-center gap-8 overflow-hidden rounded-[2rem] border border-border bg-[color:var(--cream)] lg:grid-cols-2">
+function SolutionCard({ solution }: { solution: Solution }) {
+  const [open, setOpen] = useState(false);
+  const { icon: Icon, eyebrow, title, desc, main, all, featured } = solution;
+  return (
+    <article
+      className={`flex flex-col rounded-3xl border bg-card p-7 transition hover:-translate-y-1 ${
+        featured
+          ? "border-[color:var(--orange)]/35 shadow-[var(--shadow-soft)]"
+          : "border-border shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-soft)]"
+      }`}
+    >
+      <div className="flex items-center justify-between gap-3">
+        <span
+          className={`grid h-12 w-12 place-items-center rounded-full ${
+            featured
+              ? "bg-[color:var(--orange)] text-accent-foreground"
+              : "bg-[color:var(--sky-soft)] text-primary"
+          }`}
+        >
+          <Icon className="h-5 w-5" strokeWidth={1.6} />
+        </span>
+        <span
+          className={`text-[10px] font-semibold uppercase tracking-[0.16em] ${
+            featured ? "text-[color:var(--orange)]" : "text-muted-foreground"
+          }`}
+        >
+          {eyebrow}
+        </span>
+      </div>
+
+      <h3 className="mt-6 text-lg font-bold leading-snug text-primary">{title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
+
+      <ul className="mt-5 space-y-2.5 text-[13px] text-primary/80">
+        {main.map((m) => (
+          <li key={m} className="flex items-start gap-2.5">
+            <Check
+              className="mt-0.5 h-4 w-4 shrink-0 text-[color:var(--orange)]"
+              strokeWidth={2.4}
+            />
+            {m}
+          </li>
+        ))}
+      </ul>
+
+      {open && (
+        <ul className="mt-4 space-y-2 border-t border-border pt-4 text-[13px] text-primary/70">
+          {all
+            .filter((a) => !main.includes(a))
+            .map((a) => (
+              <li key={a} className="flex items-start gap-2.5">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--sky)]" />
+                {a}
+              </li>
+            ))}
+        </ul>
+      )}
+
+      <div className="mt-auto pt-6">
+        <button
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          className="inline-flex items-center gap-1.5 text-sm font-semibold text-[color:var(--orange)] transition hover:brightness-90"
+        >
+          {open ? "Ver menos" : "Ver todos los servicios"}
+          <ChevronDown className={`h-4 w-4 transition ${open ? "rotate-180" : ""}`} />
+        </button>
+      </div>
+    </article>
+  );
+}
+
+/* ---------------- Operación destacada ---------------- */
+
+function Operacion() {
+  return (
+    <section className="relative pb-24">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-0 overflow-hidden rounded-[2rem] border border-border bg-[color:var(--cream)] lg:grid-cols-2">
           <img
             src={operacion.url}
             alt="Supervisor coordinando al personal operativo de servicios generales"
             loading="lazy"
             width={1200}
             height={912}
-            className="h-full max-h-[360px] w-full object-cover"
+            className="h-full max-h-[380px] w-full object-cover"
           />
-          <div className="p-8 lg:p-10">
-            <h3 className="text-2xl font-extrabold text-primary sm:text-3xl">
-              Un aliado que responde en campo, no solo en papel.
+          <div className="p-8 lg:p-12">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--orange)]">
+              Operación y mantenimiento
+            </span>
+            <h3 className="mt-3 text-2xl font-extrabold leading-snug text-primary sm:text-3xl">
+              Nuestra línea principal, respaldada en campo.
             </h3>
-            <p className="mt-4 text-sm text-primary/75">
-              Supervisión permanente, reemplazos garantizados y reportes de gestión para que siempre
-              sepas cómo va tu operación.
+            <p className="mt-4 text-sm leading-relaxed text-primary/70">
+              Supervisión permanente, protocolos documentados y reemplazos garantizados para que tus
+              instalaciones estén siempre impecables y funcionando.
             </p>
             <a
               href="#contacto"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-orange)] transition hover:brightness-110"
+              className="mt-7 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-orange)] transition hover:brightness-110"
             >
               Agendar una visita <ArrowRight className="h-4 w-4" />
             </a>
@@ -495,38 +516,38 @@ function BusinessLines() {
   );
 }
 
-/* ---------------- Process ---------------- */
+/* ---------------- Proceso ---------------- */
 
 function Process() {
   return (
-    <section id="nosotros" className="relative py-24">
+    <section id="proceso" className="relative bg-[color:var(--cream)] py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <Eyebrow>Nuestro proceso</Eyebrow>
-          <h2 className="mt-3 text-3xl font-extrabold text-primary sm:text-4xl md:text-5xl">
-            Así encontramos el talento ideal para tu empresa.
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">
+            Cómo <span className="text-[color:var(--orange)]">trabajamos</span>
           </h2>
           <p className="mt-4 text-base text-muted-foreground">
-            Un método probado, 5 pasos, cero improvisación.
+            Un método claro en cinco pasos, sin improvisación.
           </p>
         </div>
 
-        <ol className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        <ol className="relative mt-16 grid grid-cols-1 gap-10 sm:grid-cols-3 lg:grid-cols-5">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute left-0 right-0 top-6 hidden h-px bg-[color:var(--sky)] lg:block"
+          />
           {process.map((p, i) => (
-            <li
-              key={p.n}
-              className="group relative rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
-            >
-              <div className="flex items-center justify-between">
-                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[color:var(--sky-soft)] text-primary">
-                  <p.icon className="h-5 w-5" />
-                </div>
-                <span className="grid h-8 w-8 place-items-center rounded-full bg-[color:var(--orange)] text-xs font-bold text-accent-foreground">
-                  {i + 1}
-                </span>
+            <li key={p.title} className="relative text-center">
+              <span className="relative z-10 mx-auto grid h-12 w-12 place-items-center rounded-full border border-[color:var(--sky)] bg-white text-primary">
+                <p.icon className="h-5 w-5" strokeWidth={1.6} />
+              </span>
+              <div className="mt-4 text-[11px] font-bold tracking-[0.2em] text-[color:var(--orange)]">
+                0{i + 1}
               </div>
-              <h3 className="mt-5 text-base font-bold text-primary">{p.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
+              <h3 className="mt-1 text-base font-bold text-primary">{p.title}</h3>
+              <p className="mx-auto mt-2 max-w-[15rem] text-sm leading-relaxed text-muted-foreground">
+                {p.desc}
+              </p>
             </li>
           ))}
         </ol>
@@ -535,103 +556,98 @@ function Process() {
   );
 }
 
-/* ---------------- Specialties ---------------- */
+/* ---------------- Sectores (dinámico) ---------------- */
 
-function Specialties() {
-  const [showAll, setShowAll] = useState(false);
+function Sectors() {
+  const rowA = sectors.slice(0, 6);
+  const rowB = sectors.slice(6);
   return (
-    <section id="perfiles" className="relative overflow-hidden bg-[color:var(--sky-soft)] py-24">
+    <section id="sectores" className="relative overflow-hidden py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <Eyebrow>Perfiles que impulsan tu negocio</Eyebrow>
-          <h2 className="mt-3 text-3xl font-extrabold text-primary sm:text-4xl md:text-5xl">
-            Talento especializado, agrupado por área.
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">
+            Acompañamos a empresas de{" "}
+            <span className="text-[color:var(--orange)]">todos los sectores</span>
           </h2>
           <p className="mt-4 text-base text-muted-foreground">
-            Cuatro grandes familias de perfiles que cubren la mayoría de las necesidades de nuestros
-            clientes.
+            Adaptamos el equipo, los protocolos y los insumos al ritmo de cada industria.
           </p>
         </div>
+      </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {profileFamilies.map(({ icon: Icon, title, desc, roles }) => (
-            <article
-              key={title}
-              className="group relative overflow-hidden rounded-3xl border border-white/60 bg-white p-6 shadow-[var(--shadow-card)] transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
-            >
-              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[color:var(--orange)] text-accent-foreground shadow-[var(--shadow-orange)]">
-                <Icon className="h-5 w-5" />
-              </div>
-              <h3 className="mt-5 text-base font-bold text-primary">{title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {roles.map((r) => (
-                  <li
-                    key={r}
-                    className="rounded-full bg-[color:var(--sky-soft)] px-3 py-1 text-[11px] font-medium text-primary/80"
-                  >
-                    {r}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
+      <div className="relative mt-14 space-y-5">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background to-transparent"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-background to-transparent"
+        />
+        <SectorRow items={rowA} />
+        <SectorRow items={rowB} reverse />
+      </div>
 
-        <div className="mt-10 flex justify-center">
-          <button
-            onClick={() => setShowAll((v) => !v)}
-            aria-expanded={showAll}
-            className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-6 py-3 text-sm font-semibold text-primary transition hover:border-accent hover:text-accent"
-          >
-            {showAll ? "Ocultar perfiles" : "Ver todos los perfiles"}
-            <ChevronDown className={`h-4 w-4 transition ${showAll ? "rotate-180" : ""}`} />
-          </button>
-        </div>
-
-        {showAll && (
-          <div className="mt-8 rounded-3xl border border-white/60 bg-white p-6 shadow-[var(--shadow-card)] sm:p-8">
-            <div className="grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
-              {allProfiles.map((p) => (
-                <div key={p} className="flex items-center gap-2 text-sm text-primary/80">
-                  <CheckCircle2 className="h-4 w-4 shrink-0 text-[color:var(--orange)]" />
-                  {p}
-                </div>
-              ))}
-            </div>
-            <a
-              href="#contacto"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-orange)] transition hover:brightness-110"
-            >
-              Solicitar un perfil <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
-        )}
+      <div className="mx-auto mt-12 max-w-7xl px-5 text-center lg:px-8">
+        <a
+          href="#contacto"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--orange)]"
+        >
+          ¿No ves tu sector? Hablemos <ArrowRight className="h-4 w-4" />
+        </a>
       </div>
     </section>
   );
 }
 
-/* ---------------- Trust: testimonios y certificaciones ---------------- */
+function SectorRow({ items, reverse }: { items: string[]; reverse?: boolean }) {
+  const track = [...items, ...items, ...items, ...items];
+  return (
+    <div
+      className={`flex w-max items-center gap-4 px-4 ${
+        reverse ? "marquee-track-reverse" : "marquee-track"
+      }`}
+    >
+      {track.map((name, i) => {
+        const variant = i % 3;
+        const style =
+          variant === 0
+            ? "bg-[color:var(--navy)] text-white"
+            : variant === 1
+              ? "bg-[color:var(--sky-soft)] text-primary"
+              : "border border-[color:var(--orange)]/40 bg-white text-primary";
+        return (
+          <span
+            key={`${name}-${i}`}
+            className={`whitespace-nowrap rounded-full px-6 py-3.5 text-sm font-semibold shadow-[var(--shadow-card)] ${style}`}
+          >
+            {name}
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
+/* ---------------- Confianza ---------------- */
 
 function Trust() {
   return (
-    <section id="confianza" className="relative py-24">
+    <section id="confianza" className="relative bg-[color:var(--cream)] py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <Eyebrow>Confianza respaldada</Eyebrow>
-          <h2 className="mt-3 text-3xl font-extrabold text-primary sm:text-4xl md:text-5xl">
-            Empresas reales, resultados reales.
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">
+            Lo que dicen <span className="text-[color:var(--orange)]">nuestros clientes</span>
           </h2>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-5 lg:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
           {testimonials.map((t) => (
             <figure
               key={t.name}
-              className="flex flex-col rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-card)] transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
+              className="flex flex-col rounded-3xl border border-border bg-white p-7 shadow-[var(--shadow-card)]"
             >
-              <Quote className="h-7 w-7 text-[color:var(--orange)]" />
+              <Quote className="h-6 w-6 text-[color:var(--orange)]" strokeWidth={1.6} />
               <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-primary/80">
                 “{t.quote}”
               </blockquote>
@@ -647,94 +663,37 @@ function Trust() {
             </figure>
           ))}
         </div>
-
-        <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {certifications.map(({ icon: Icon, title, desc }) => (
-            <div
-              key={title}
-              className="flex items-start gap-4 rounded-2xl border border-border bg-[color:var(--cream)] p-5"
-            >
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white text-[color:var(--orange)]">
-                <Icon className="h-5 w-5" />
-              </span>
-              <span>
-                <span className="block text-sm font-bold text-primary">{title}</span>
-                <span className="mt-1 block text-xs text-muted-foreground">{desc}</span>
-              </span>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
 }
 
-/* ---------------- Industries ---------------- */
-
-function Industries() {
-  return (
-    <section className="relative py-24">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <Eyebrow>Trabajamos con</Eyebrow>
-          <h2 className="mt-3 text-3xl font-extrabold text-primary sm:text-4xl md:text-5xl">
-            Empresas de todos los sectores.
-          </h2>
-          <p className="mt-4 text-base text-muted-foreground">
-            Diseñamos soluciones a la medida sin importar la industria.
-          </p>
-        </div>
-
-        <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-          {industries.map(({ icon: Icon, title }) => (
-            <div
-              key={title}
-              className="group flex flex-col items-start gap-3 rounded-2xl border border-border bg-card p-5 transition hover:-translate-y-1 hover:border-[color:var(--orange)]/40 hover:shadow-[var(--shadow-card)]"
-            >
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-[color:var(--sky-soft)] text-primary transition group-hover:bg-[color:var(--orange)] group-hover:text-accent-foreground">
-                <Icon className="h-4.5 w-4.5" />
-              </div>
-              <div className="text-sm font-semibold leading-snug text-primary">{title}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- Clients (auto-slide marquee) ---------------- */
+/* ---------------- Clientes ---------------- */
 
 function Clients() {
   const track = [...clients, ...clients];
   return (
-    <section
-      id="clientes"
-      className="relative overflow-hidden border-y border-border bg-[color:var(--cream)] py-16"
-    >
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <Eyebrow>Empresas que confían en nosotros</Eyebrow>
-          <h2 className="mt-3 text-2xl font-extrabold text-primary sm:text-3xl">
-            +100 empresas han fortalecido su operación con nuestro talento.
-          </h2>
-        </div>
+    <section id="clientes" className="relative overflow-hidden border-y border-border py-16">
+      <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
+        <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          Empresas que confían en nosotros
+        </span>
       </div>
 
-      <div className="relative mt-12 overflow-hidden">
+      <div className="relative mt-10 overflow-hidden">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[color:var(--cream)] to-transparent"
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background to-transparent"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[color:var(--cream)] to-transparent"
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-background to-transparent"
         />
         <div className="marquee-track flex w-max items-center gap-14 px-6">
           {track.map((name, i) => (
             <span
               key={`${name}-${i}`}
-              className="whitespace-nowrap text-2xl font-extrabold tracking-tight text-primary/60 transition hover:text-primary sm:text-3xl"
+              className="whitespace-nowrap text-2xl font-extrabold tracking-tight text-primary/45 transition hover:text-primary sm:text-3xl"
             >
               {name}
             </span>
@@ -745,7 +704,7 @@ function Clients() {
   );
 }
 
-/* ---------------- CTA Banner ---------------- */
+/* ---------------- CTA ---------------- */
 
 function CtaBanner() {
   return (
@@ -755,15 +714,14 @@ function CtaBanner() {
           className="relative overflow-hidden rounded-[2.5rem] p-8 shadow-[var(--shadow-soft)] sm:p-12 lg:p-16"
           style={{ background: "var(--gradient-hero)" }}
         >
-          <div className="brand-swoosh opacity-70" />
           <div className="relative grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.2fr_1fr]">
             <div className="text-white">
-              <h2 className="text-3xl font-extrabold sm:text-4xl md:text-5xl">
-                ¿Buscas personal confiable y listo para trabajar?
+              <h2 className="text-3xl font-extrabold sm:text-4xl">
+                Diseñemos la solución que tu operación necesita.
               </h2>
-              <p className="mt-4 max-w-xl text-white/75">
-                Selecciónamos el talento adecuado para que tu empresa continúe creciendo sin
-                preocuparte por los procesos de reclutamiento.
+              <p className="mt-4 max-w-xl text-white/70">
+                Cuéntanos qué necesitas y armamos una propuesta a la medida, con alcance, equipo y
+                tiempos claros.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
@@ -789,18 +747,18 @@ function CtaBanner() {
   );
 }
 
-/* ---------------- Contact ---------------- */
+/* ---------------- Contacto ---------------- */
 
 function Contact() {
   return (
-    <section id="contacto" className="relative py-24">
+    <section id="contacto" className="relative pb-24">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 lg:grid-cols-2 lg:px-8">
         <div>
           <Eyebrow>Contáctanos</Eyebrow>
-          <h2 className="mt-3 text-3xl font-extrabold text-primary sm:text-4xl md:text-5xl">
+          <h2 className="mt-4 text-3xl font-extrabold text-primary sm:text-4xl">
             Cuéntanos qué necesitas y te enviamos una propuesta a medida.
           </h2>
-          <p className="mt-5 max-w-md text-primary/75">
+          <p className="mt-5 max-w-md text-primary/70">
             Respondemos en menos de 24 horas hábiles. Atendemos empresas de todos los sectores en
             Colombia.
           </p>
@@ -849,7 +807,7 @@ function Contact() {
               <textarea
                 name="mensaje"
                 rows={4}
-                placeholder="Cuéntanos brevemente el perfil o servicio que buscas"
+                placeholder="Cuéntanos brevemente el servicio que buscas"
                 className="mt-2 w-full resize-none rounded-xl border border-input bg-background px-4 py-3 text-sm text-primary outline-none focus:border-accent focus:ring-2 focus:ring-accent/30"
               />
             </div>
@@ -861,7 +819,7 @@ function Contact() {
             Enviar solicitud <ArrowRight className="h-4 w-4" />
           </button>
           <p className="mt-3 text-center text-[11px] text-muted-foreground">
-            Al enviar aceptas ser contactado por Talento y Servicios Integrales.
+            Al enviar aceptas ser contactado por nuestro equipo comercial.
           </p>
         </form>
       </div>
@@ -897,7 +855,7 @@ function ContactRow({
   const inner = (
     <>
       <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[color:var(--orange)] text-accent-foreground">
-        <Icon className="h-5 w-5" />
+        <Icon className="h-5 w-5" strokeWidth={1.7} />
       </span>
       <span className="text-base font-medium">{label}</span>
     </>
@@ -931,8 +889,8 @@ function Footer() {
             className="h-12 w-auto brightness-0 invert"
           />
           <p className="mt-4 max-w-md text-sm text-white/60">
-            Soluciones que impulsan tu operación. Conectamos empresas con el talento y los servicios
-            profesionales que necesitan para crecer.
+            Soluciones que impulsan tu operación. Aseo y mantenimiento, talento humano, tecnología y
+            suministros para empresas de todos los sectores.
           </p>
         </div>
         <div>
@@ -974,6 +932,7 @@ function Footer() {
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--orange)]/30 bg-[color:var(--orange)]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--orange)]">
+      <Sparkles className="h-3.5 w-3.5" />
       {children}
     </span>
   );
